@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --black: #000000;
+            --dardk: #232830;
+            --very-light-pink: #C7C7C7;
+            --text-input-field: #F7F7F7;
+            --hospital-green: #ACD9B2;
+            --sm: 14px;
+            --md: 16px;
+            --lg: 18px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 62.5%;
+        }
+        body {
+            font-size: 1.6rem;
+        }
+        .my-order {
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            width: 100%;
+            height: 100vh;
+        }
+        .my-order-container {
+            width: 100%;
+            max-width: 404px;
+        }
+        .title {
+            margin-bottom: 47px;
+            font-size: var(--lg);
+            font-weight: bold;
+        }
+        .order {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            width: 100%;
+            border-radius: 8px;
+            background-color: var(--text-input-field);
+        }
+        .order--section--order-list {
+            grid-template-columns: auto 1fr auto;
+            margin-bottom: 24px; 
+            padding: 0px;
+            background-color: transparent;
+        }
+        .order__date {
+            font-weight: bold;
+        }
+        .order__quantity {
+            font-size: var(--sm);
+            color: var(--very-light-pink);
+        }
+        .order__price {
+            font-weight: bold;
+            font-family: Roboto;
+            text-align: end;
+            color: var(--dardk);
+        }
+        @media (max-width: 640px) {
+            .my-order {
+                align-items: start;
+            }
+            .title {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="my-order">
+        <div class="my-order-container">
+            <h1 class="title">My orders</h1>
+
+            <div class="my-order-content">
+                <div class="order order--section--order-list">
+                    <div>
+                        <p class="order__date">04.25.2021</p>
+                        <p class="order__quantity">6 articles</p>
+                    </div>
+                    <p class="order__price">$ 560.00</p>
+                    <img src="/assets/icons/flechita.svg" alt="arrow icon">
+                </div>
+                <div class="order order--section--order-list">
+                    <div>
+                        <p class="order__date">04.25.2021</p>
+                        <p class="order__quantity">6 articles</p>
+                    </div>
+                    <p class="order__price">$ 560.00</p>
+                    <img src="/assets/icons/flechita.svg" alt="arrow icon">
+                </div>
+                <div class="order order--section--order-list">
+                    <div>
+                        <p class="order__date">04.25.2021</p>
+                        <p class="order__quantity">6 articles</p>
+                    </div>
+                    <p class="order__price">$ 560.00</p>
+                    <img src="/assets/icons/flechita.svg" alt="arrow icon">
+                </div>
+                <div class="order order--section--order-list">
+                    <div>
+                        <p class="order__date">04.25.2021</p>
+                        <p class="order__quantity">6 articles</p>
+                    </div>
+                    <p class="order__price">$ 560.00</p>
+                    <img src="/assets/icons/flechita.svg" alt="arrow icon">
+                </div>
+                <div class="order order--section--order-list">
+                    <div>
+                        <p class="order__date">04.25.2021</p>
+                        <p class="order__quantity">6 articles</p>
+                    </div>
+                    <p class="order__price">$ 560.00</p>
+                    <img src="/assets/icons/flechita.svg" alt="arrow icon">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
