@@ -203,6 +203,113 @@ body {
     font-weight: bold;
 }
 
+/* Aside (Product details & Shopping cart */
+.product-details {
+    position: absolute;
+    right: 0;
+    width: 384px;
+    height: 100vh;
+}
+.product-details-container {
+    position: relative;
+    display: grid;
+    grid-auto-rows: auto 1fr auto;
+    width: 100%;
+    height: 100%;
+    min-height: 310px;
+    padding: 20px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.10);
+}
+.title {
+    margin-bottom: 47px;
+    font-size: var(--lg);
+    font-weight: bold;
+}
+.title--shopping-cart {
+    margin-bottom: 24px;
+}
+.title > img {
+    margin-right: 16px;
+    transform: rotate(180deg);
+}
+.shopping-cart--shopping-cart {
+    min-height: 80px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.article {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.article--shopping-cart {
+    grid-template-columns: auto auto 1fr auto;
+}
+.article figure img {
+    width: 76px;
+    height: 76px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.article > img {
+    width: 12px;
+    height: 12px;
+}
+.article p:nth-child(2) {
+    font-size: var(--sm);
+}
+.order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: var(--text-input-field);
+}
+.order--shopping-cart {
+    margin-top: 8px;
+    padding: 28px 20px;
+}
+.order__date {
+    font-weight: bold;
+}
+.order__quantity {
+    font-size: var(--sm);
+    color: var(--very-light-pink);
+}
+.order__price {
+    font-weight: bold;
+    font-family: Roboto;
+    text-align: end;
+    color: var(--dardk);
+}
+.primary-button {
+    border: none;
+    padding: 18px;
+    width: 100%;
+    height: 50px;
+    font-size: var(--lg);
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: var(--hospital-green);
+}
+
+@media (max-width: 640px) {
+    .product-details {
+        width: 100%;
+    }
+    .title {
+        display: none;
+    }
+}
+
 @media (max-width: 940px) {
     .header {
         padding: 12px 10px;
