@@ -7,20 +7,25 @@ const mobileMenuIconClose = document.querySelector('.mobile-menu__icon-close');
 const mobileMenu = document.querySelector('.mobile-menu-container');
 const navShopCartIcon = document.querySelector('.account__shopping-cart');
 const closeShopCartAsideIcon = document.querySelector('.title__icon');
-const shoppingCartAside = document.querySelector('.product-details');
+const shoppingCartAside = document.querySelector('.shopping-cart-aside');
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailAside = document.querySelector('.product-details-aside');
+const closeProductDetailAsideIcon = document.querySelector('.product-details__icon-close');
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 menuHamburgerIcon.addEventListener('click', toggleMobileMenu);
 mobileMenuIconClose.addEventListener('click', toggleMobileMenu);
 navShopCartIcon.addEventListener('click', toggleShoppingCartAside);
 closeShopCartAsideIcon.addEventListener('click', toggleShoppingCartAside);
+closeProductDetailAsideIcon.addEventListener('click', closeProductDetailAside); // openProductDetailAside in renderProducts()
 
 function toggleDesktopMenu () {
     const isShoppingCartAsideClosed = shoppingCartAside.classList.contains('inactive');
+    const isProductDetailAsideClosed = productDetailAside.classList.contains('inactive');
 
-    if (!isShoppingCartAsideClosed) {
+    if (!isShoppingCartAsideClosed || !isProductDetailAsideClosed) {
         shoppingCartAside.classList.add('inactive');
+        productDetailAside.classList.add('inactive');
     }
 
     desktopMenu.classList.toggle('inactive');
@@ -28,9 +33,11 @@ function toggleDesktopMenu () {
 
 function toggleMobileMenu () {
     const isShoppingCartAsideClosed = shoppingCartAside.classList.contains('inactive');
+    const isProductDetailAsideClosed = productDetailAside.classList.contains('inactive');
 
-    if (!isShoppingCartAsideClosed) {
+    if (!isShoppingCartAsideClosed || !isProductDetailAsideClosed) {
         shoppingCartAside.classList.add('inactive');
+        productDetailAside.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -39,13 +46,36 @@ function toggleMobileMenu () {
 function toggleShoppingCartAside () {
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    
-    if (!isMobileMenuClosed || !isDesktopMenuClosed) {
+    const isProductDetailAsideClosed = productDetailAside.classList.contains('inactive');
+
+    if (!isMobileMenuClosed || !isDesktopMenuClosed || !isProductDetailAsideClosed) {
         mobileMenu.classList.add('inactive');
         desktopMenu.classList.add('inactive');
+        productDetailAside.classList.add('inactive');
     } 
     
     shoppingCartAside.classList.toggle('inactive');
+}
+
+function openProductDetailAside () {
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isShoppingCartAsideClosed = shoppingCartAside.classList.contains('inactive');
+    const isProductDetailAsideClosed =  productDetailAside.classList.contains('inactive');
+    
+    if (!isMobileMenuClosed || !isDesktopMenuClosed || !isShoppingCartAsideClosed) {
+        mobileMenu.classList.add('inactive');
+        desktopMenu.classList.add('inactive');
+        shoppingCartAside.classList.add('inactive');
+    }
+    
+    if (isProductDetailAsideClosed) {
+        productDetailAside.classList.remove('inactive');
+    }
+}
+
+function closeProductDetailAside () {
+    productDetailAside.classList.add('inactive');
 }
 
 const productList = [];
@@ -82,6 +112,8 @@ function renderProducts (arr) {
         cardPrice.innerText = '$' + product.price;
         cardName.innerText = product.name;
         cardAddIcon.setAttribute('src', './assets/icons/bt_add_to_cart.svg');
+
+        productCard.addEventListener('click', openProductDetailAside);
     
         cardInfoText.append(cardPrice, cardName);
         cardInfoFigure.appendChild(cardAddIcon);
